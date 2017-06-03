@@ -1,0 +1,79 @@
+<html lang="es" >
+<head></head>
+<body>
+
+<script type="text/javascript">
+function calcular()
+{
+  var peso=document.getElementById('peso').value;
+  var talla=document.getElementById('talla').value;
+  var hgb=document.getElementById('hgb').value;
+  var sata=document.getElementById('sata').value;
+  var satp=document.getElementById('satp').value;
+  var paps=document.getElementById('paps').value;
+  var papd=document.getElementById('papd').value;
+  var pcpm=document.getElementById('pcpm').value;
+  
+  var scorporal =Math.sqrt((talla * peso) / 3600);
+  var papm= (0.61*paps)+2;
+  var consumo =peso*3;
+    
+  var gc=consumo/((sata-satp)*1.36*hgb)*10;
+  var ic = gc/scorporal;
+  var gtp=papm-pcpm;
+  var rpwood=gtp/gc;
+  var rpdinas=rpwood*80;
+  
+  
+  
+
+  
+  
+  
+  document.write("Superficie Cororal   "   + "<b>" + Math.floor(scorporal*100)/100 + "</b>" + "<br>") ; 
+  document.write("<br>");
+  document.write("PAPm   "  + "<b>"    +Math.floor(papm*100)/100+ "</b>" + "<br>");
+  document.write("<br>");
+  document.write("Consumo O2 ml   "+      "<b>"    +   Math.floor(consumo*100)/100+   "</b>"+   "<br>");
+  document.write("<br>");
+  document.write("Gasto Cardiaco l/m   " +  "<b>" +      Math.floor(gc*100)/100  + "</b>"+           "<br>");
+  document.write("<br>");
+  
+  document.write("Indice Cardiaco   " +  "<b>"+     Math.floor(ic*100)/100+ "</b>"+    "<br>");
+  document.write("<br>");
+  document.write("Gradiente TP   "+  "<b>"+      Math.floor(gtp*100)/100+  "</b>"+    "<br>");
+  document.write("<br>");
+  document.write("RVP U. Wood   "+  "<b>"+     Math.floor(rpwood*100)/100+  "</b>"+     "<br>");
+  document.write("<br>");
+  document.write("RVP Dinas   "+  "<b>"+       Math.floor(rpdinas*100)/100+  "</b>"+    "<br>");
+}
+
+
+
+
+</script>
+
+<form> 
+Peso Kg  : <input type="text" id="peso"><br>
+<br>
+Talla cm  :<input type="text" id="talla"><br>
+<br>
+Hgb : <input type="text" id="hgb"><br>
+<br>
+Sat O2 AO2: <input type="text" id="sata"><br>
+<br>
+Sat O2 AP : <input type="text" id="satp"><br>
+<br>
+PAPs : <input type="text" id="paps"><br>
+<br>
+PAPd : <input type="text" id="papd"><br>
+<br>
+PCPm : <input type="text" id="pcpm"><br>
+<br>
+
+
+<input type="button" value="CALCULAR" onClick="calcular()">
+</form>
+
+</body>
+</html>
